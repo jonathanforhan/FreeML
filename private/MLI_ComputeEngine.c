@@ -335,12 +335,7 @@ VkResult MLI_ComputeEngine_createShader(MLI_ComputeEngine* computeEngine, const 
     }
     rewind(f);
 
-    long buflen = len;
-    while (buflen % 4) {
-        buflen++;
-    }
-
-    buf = calloc(buflen, sizeof(char));
+    buf = malloc(len);
     if (buf == NULL) {
         goto abort;
     }
